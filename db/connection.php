@@ -1,5 +1,6 @@
 <?php
-$pdo = new PDO(
+try {
+    $pdo = new PDO(
     'mysql:host=localhost;dbname=films;charset=utf8mb4',
     'root',
     'root',
@@ -8,6 +9,10 @@ $pdo = new PDO(
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ]
 );
+} catch(PDOException $e) {
+    echo $e->getMessage();
+}
+
 
 $stmt = $pdo->query("SELECT Title FROM films");
 $users = $stmt->fetchAll();
