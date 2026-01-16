@@ -12,12 +12,3 @@ try {
 } catch(PDOException $e) {
     echo $e->getMessage();
 }
-
-
-$stmt = $pdo->query("SELECT Title FROM films");
-$users = $stmt->fetchAll();
-echo '<pre>';
-print_r($users);
-echo '</pre>';
-
-
